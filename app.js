@@ -7,6 +7,7 @@ const Adocao = require('./models/Adocao');
 
 app.use(express.json());
 
+//fazendo requisições
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
@@ -15,6 +16,7 @@ app.use((req, res, next) => {
     next();
 });
 
+//rota para listar e visualizar a página raiz
 app.get('/', async(req, res) => {
     return res.json({
         erro: false,
@@ -22,6 +24,7 @@ app.get('/', async(req, res) => {
     });
 });
 
+//rota para listar e visualizar a página adoção
 app.get('/adocao', async(req, res) => {
     return res.json({
         erro: false,
@@ -34,6 +37,7 @@ app.get('/adocao', async(req, res) => {
     });
 });
 
+//rota para listar e visualizar a página sobre
 app.get('/sobre', async(req, res) => {
     return res.json({
         erro: false,
@@ -71,6 +75,7 @@ app.post('add-adocao', async (req, res) => {
     })
 });
 
+//executando na porta 8080
 app.listen(8080, () => {
     console.log("Servidor iniciado: http://localhost:8080")
 })
